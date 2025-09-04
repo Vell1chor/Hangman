@@ -9,11 +9,13 @@ namespace io {
 		}
 	}
 
-	void MysteryWord(std::string& mysteryword) {
+	std::string MysteryWord() {
+		std::string mysteryword;
 		std::cin >> mysteryword;
 		for (char& c : mysteryword) {
 			c = std::toupper(static_cast<unsigned char>(c));
 		}
+		return mysteryword;
 	}
 
 	void RetrieveGuess(std::string& guess) {
@@ -23,23 +25,23 @@ namespace io {
 		}
 	}
 
-	void GameStart(int MaxMistakes, std::string mysteryword) {
+	void GameStart(int maxmistakes, std::string mysteryword) {
 		std::cout << "Hangman" << std::endl << "-------" << std::endl << std::endl;
-		std::cout << "Mistakes: 0/" << MaxMistakes << std::endl << "Clue:     ";
+		std::cout << "Mistakes: 0/" << maxmistakes << std::endl << "Clue:     ";
 		for (int i = 0; i < mysteryword.length(); ++i) {
 			std::cout << '_';
 		}
 		std::cout << std::endl << std::endl;
 	}
 
-	void Status(std::string& guess, std::string& ClueStatus, std::string& WrongLetters,
-		int Mistakes, int MaxMistakes, bool printwrong) {
+	void Status(std::string& guess, std::string& clue, std::string& wrongletters,
+		int mistakes, int maxmistakes, bool printwrong) {
 		std::cout << "Guess: " << guess << std::endl << std::endl;
-		std::cout << "Mistakes: " << Mistakes << "/" << MaxMistakes << std::endl;
-		std::cout << "Clue:     " << ClueStatus << std::endl;
+		std::cout << "Mistakes: " << mistakes << "/" << maxmistakes << std::endl;
+		std::cout << "Clue:     " << clue << std::endl;
 
 		if (printwrong) {
-			std::cout << "Wrong:    " << WrongLetters << std::endl << std::endl;
+			std::cout << "Wrong:    " << wrongletters << std::endl << std::endl;
 		} else {
 			std::cout << std::endl;
 		}

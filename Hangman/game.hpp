@@ -6,9 +6,9 @@
 namespace hangman {
 	void HangmanStart();
 	int getDifficulty(std::string& difficulty);
-	int MistakeCount(int Mistakes, std::string const& guess, std::string const& mysteryword, bool error);
+	int MistakeCount(int mistakes, std::string const& guess, std::string const& mysteryword, bool error);
 	std::string WrongLetters(bool error, std::string const& guess, std::string wrongletters);
 	std::string ClueStatus(std::string const mysteryword, std::string guess, std::string clue);
-	std::string RemoveWhitespace(std::string mysteryword, std::string const& guess);
+	void RemoveWhitespace(std::string mysteryword, std::string const& guess);
 
 } 

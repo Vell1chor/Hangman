@@ -4,12 +4,12 @@
 void hangman::HangmanStart() {
 
 	std::string clue;
-	std::string WrongLetters;
+	std::string wrongletters;
 	std::string guess;
 	std::string mysteryword;
 	std::string difficulty;
-	int Mistakes = 0;
-	int MaxMistakes = 9;
+	int mistakes = 0;
+	int maxmistakes = 9;
 	int mistakecount = 0;
 	bool done = false;
 	bool printwrong = false;
@@ -17,21 +17,25 @@ void hangman::HangmanStart() {
 	bool error = false;
 
 	io::Difficulty(difficulty);
-	io::MysteryWord(mysteryword);
-	MaxMistakes = hangman::getDifficulty(difficulty);
-	io::GameStart(MaxMistakes, mysteryword);
+	mysteryword = io::MysteryWord();
+	maxmistakes = hangman::getDifficulty(difficulty);
+	io::GameStart(maxmistakes, mysteryword);
 
-	mistakecount = hangman::MistakeCount(Mistakes,guess,mysteryword,error);
+	mistakecount = hangman::MistakeCount(mistakes,guess,mysteryword,error);
 
 	if (error == true) {
 		std::string WrongLetters(bool error, std::string const& guess, std::string wrongletters);
 	}
-	else std::string ClueStatus(mysteryword, guess, clue);
+	else {
+		hangman::ClueStatus(mysteryword, guess, clue);
+	}
 
 	while (!done) {
 		io::RetrieveGuess(guess);
 		hangman::RemoveWhitespace(mysteryword, guess);
-		io::Status(guess, clue, WrongLetters, Mistakes, MaxMistakes, printwrong);
+		hangman::ClueStatus(mysteryword, guess, clue);
+
+		io::Status(guess, clue, wrongletters, mistakes, maxmistakes, printwrong);
 
 		if (guess == mysteryword) {
 			done = true;

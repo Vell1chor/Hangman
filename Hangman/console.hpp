@@ -4,11 +4,11 @@
 
 namespace io {
 
-	void GameStart(int MaxMistakes, std::string mysteryword);
+	void GameStart(int maxmistakes, std::string mysteryword);
 	void Difficulty(std::string& difficulty);
-	void MysteryWord(std::string& mysteryword);
+	std::string MysteryWord();
 	void RetrieveGuess(std::string& guess);
-	void Status(std::string& guess, std::string& ClueStatus, std::string& WrongLetters,
-		int Mistakes, int MaxMistakes, bool wrong);
+	void Status(std::string& guess, std::string& cluestatus, std::string& wrongletters,
+		int mistakes, int maxmistakes, bool wrong);
 	void EndResult(bool win, std::string mysteryword);
 }

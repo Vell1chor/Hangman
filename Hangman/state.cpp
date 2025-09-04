@@ -3,29 +3,29 @@
 namespace hangman {
 
 	int hangman::Logic::getDifficulty(std::string& difficulty) {
-		int MaxMistakes = 9;
+		int maxmistakes = 9;
 		if (difficulty == "HARD") {
-			MaxMistakes = 6;
+			maxmistakes = 6;
 		}
-		return MaxMistakes;
+		return maxmistakes;
 	}
 
-	int hangman::Logic::MistakeCount(int Mistakes, std::string const& guess, std::string const& mysteryword, bool& error) {
+	int hangman::Logic::MistakeCount(int mistakes, std::string const& guess, std::string const& mysteryword, bool& error) {
 		if (mysteryword.find(guess) == std::string::npos) {
-			Mistakes++;
+			mistakes++;
 			error = true;
 		}
 		else {
 			error = false;
 		}
-		return Mistakes;
+		return mistakes;
 	}
 
 	std::string hangman::Logic::WrongLetters(std::string const& guess, std::string wrongletters) {
 		return wrongletters += guess;
 	}
 
-	std::string RemoveWhitespace(std::string& mysteryword, std::string& guess) {
+	void RemoveWhitespace(std::string& mysteryword, std::string& guess) {
 		for (char c : mysteryword) {
 			if (!std::isspace(static_cast<unsigned char>(c))) {
 				guess += c;
@@ -47,11 +47,10 @@ namespace hangman {
 			}
 		}
 
-		std::string trassssh;
-		for (char c : guess) {
-			trassssh += c;
+		if (!guess.empty()) {
+			guess.erase(0, 1);
 		}
-		guess = trassssh;
+
 		return clue;
 	}
 }
