@@ -9,6 +9,14 @@ namespace io {
 		}
 	}
 
+	int IntoDifficulty(std::string& difficulty) {
+		int maxmistakes = 9;
+		if (difficulty == "HARD") {
+			maxmistakes = 6;
+		}
+		return maxmistakes;
+	}
+
 	std::string MysteryWord() {
 		std::string mysteryword;
 		std::cin >> mysteryword;
@@ -22,6 +30,14 @@ namespace io {
 		std::getline(std::cin, guess);
 		for (char& c : guess) {
 			c = std::toupper(static_cast<unsigned char>(c));
+		}
+	}
+
+	void RemoveWhitespace(std::string& mysteryword, std::string& guess) {
+		for (char c : mysteryword) {
+			if (!std::isspace(static_cast<unsigned char>(c))) {
+				guess += c;
+			}
 		}
 	}
 
