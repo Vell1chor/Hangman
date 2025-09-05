@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/aiden/source/repos/Hangman/build/cmake_install.cmake",
+		"C:/Users/aiden/source/repos/Hangman/build/Hangman/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

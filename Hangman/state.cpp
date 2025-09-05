@@ -2,42 +2,27 @@
 
 namespace hangman {
 
-	int hangman::Logic::MistakeCount(int mistakes, std::string const& guess, std::string const& mysteryword, bool& error) {
-		if (mysteryword.find(guess) == std::string::npos) {
+	int Logic::MistakeCount(std::string const& guess, std::string const& mysteryword, bool& printwrong, int mistakes) {
+		if (mysteryword.find(guess) != std::string::npos) {
 			mistakes++;
-			error = true;
-		}
-		else {
-			error = false;
+			printwrong = true;
 		}
 		return mistakes;
 	}
 
-	std::string hangman::Logic::WrongLetters(std::string const& guess, std::string wrongletters) {
+	std::string Logic::WrongLetters(const std::string& guess, std::string wrongletters) {
 		return wrongletters += guess;
 	}
 
-	std::string hangman::Logic::ClueStatus(std::string const mysteryword, std::string& guess, std::string clue) {
+	std::string Logic::ClueStatus(std::string const mysteryword, std::string& guess, std::string clue) {
 		char g = guess[0];
-		int i = -1;
+		int cpos = 0;
 		for (char c : mysteryword) {
-			i++;
-			char vnub = '-';
 			if (c == g) {
-				vnub = g;
+				clue[cpos] = g;
 			}
-			if (clue[i] == '-') {
-				clue[i] = vnub;
-			}
-			/*else {
-				break;
-			}*/
+			cpos++;
 		}
-
-		if (!guess.empty()) {
-			guess.erase(0, 1);
-		}
-
 		return clue;
 	}
 }

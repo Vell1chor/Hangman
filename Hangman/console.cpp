@@ -9,13 +9,15 @@ namespace io {
 		}
 	}
 
-	int IntoDifficulty(std::string& difficulty) {
-		int maxmistakes = 9;
+	int IntoDifficulty(std::string& difficulty, int& maxmistakes) {
 		if (difficulty == "HARD") {
 			maxmistakes = 6;
 		}
 		return maxmistakes;
 	}
+	
+	//need a function for difficulty if it means duplicate letters are mistakes or not.
+	//Regualer and hard = true, easy = false
 
 	std::string MysteryWord() {
 		std::string mysteryword;
@@ -26,28 +28,32 @@ namespace io {
 		return mysteryword;
 	}
 
-	void RetrieveGuess(std::string& guess) {
-		std::getline(std::cin, guess);
-		for (char& c : guess) {
-			c = std::toupper(static_cast<unsigned char>(c));
-		}
-	}
-
-	void RemoveWhitespace(std::string& mysteryword, std::string& guess) {
-		for (char c : mysteryword) {
-			if (!std::isspace(static_cast<unsigned char>(c))) {
-				guess += c;
-			}
-		}
-	}
-
 	void GameStart(int maxmistakes, std::string mysteryword) {
+		
 		std::cout << "Hangman" << std::endl << "-------" << std::endl << std::endl;
 		std::cout << "Mistakes: 0/" << maxmistakes << std::endl << "Clue:     ";
 		for (int i = 0; i < mysteryword.length(); ++i) {
 			std::cout << '_';
 		}
 		std::cout << std::endl << std::endl;
+	}
+
+	void RetrieveGuess(std::string& guess) {
+		
+		std::cin >> guess;
+		for (char& c : guess) {
+			c = std::toupper(static_cast<unsigned char>(c));
+		}
+	}
+
+	void RemoveWhitespace(std::string& guess) {
+		std::string stuff;
+		for (char c : guess) {
+			if (c != ' ') {
+				stuff += c;
+			}
+		}
+		guess = stuff;
 	}
 
 	void Status(std::string& guess, std::string& clue, std::string& wrongletters,

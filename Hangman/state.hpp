@@ -6,11 +6,11 @@ namespace hangman {
 
 	class Logic {
 	public:
-		int MistakeCount(int mistakes, std::string const& guess, std::string const& mysteryword, bool& error);
+		int MistakeCount(std::string const& guess, std::string const& mysteryword, bool& printwrong, int mistakes);
 		std::string WrongLetters(const std::string & guess, std::string wrongletters);
 		std::string ClueStatus(std::string const mysteryword, std::string& guess, std::string clue);
 		int maxmistakes = 9;
-		int mistakes;
+		int mistakes = 0;
 		std::string wrongletters;
 	private:
 	};
