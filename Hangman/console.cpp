@@ -10,6 +10,9 @@ namespace io {
 	}
 
 	int IntoDifficulty(std::string& difficulty, int& maxmistakes) {
+		if (difficulty == "EASY") {
+			//dfghdfghdfghdfgh
+		}
 		if (difficulty == "HARD") {
 			maxmistakes = 6;
 		}

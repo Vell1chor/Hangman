@@ -1,17 +1,23 @@
 #include "state.hpp"
+#include <algorithm>
 
 namespace hangman {
 
-	int Logic::MistakeCount(std::string const& guess, std::string const& mysteryword, bool& printwrong, int mistakes) {
-		if (mysteryword.find(guess) != std::string::npos) {
-			mistakes++;
+	int Logic::MistakeCount(std::string const& guess, std::string const& mysteryword, bool& printwrong, int mistakecount) {
+		if (mysteryword.find(guess) == std::string::npos) {
+			mistakecount++;
 			printwrong = true;
 		}
-		return mistakes;
+		return mistakecount;
 	}
 
 	std::string Logic::WrongLetters(const std::string& guess, std::string wrongletters) {
-		return wrongletters += guess;
+		if (wrongletters.find(guess) == std::string::npos) {
+			wrongletters += guess;
+		}
+		
+
+		return wrongletters;
 	}
 
 	std::string Logic::ClueStatus(std::string const mysteryword, std::string& guess, std::string clue) {
