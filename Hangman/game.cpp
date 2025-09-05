@@ -13,6 +13,7 @@ void hangman::HangmanStart() {
 	bool printwrong = false;
 	bool win = false;
 	bool easyset = false;
+	bool switcher = false;
 
 	io::Difficulty(difficulty);
 	logic.maxmistakes = io::IntoDifficulty(difficulty, logic.maxmistakes, easyset);
@@ -26,19 +27,18 @@ void hangman::HangmanStart() {
 		mistakecount = logic.MistakeCount(guess, mysteryword, printwrong, mistakecount, easyset, wrongletters);
 		clue = logic.ClueStatus(mysteryword, guess, clue);
 
-		bool switcher = false;
 		if (printwrong == true) {
 			switcher = true;
 		}
 
-		if (switcher == true) {
+		if (printwrong == true) {
 			wrongletters = logic.WrongLetters(guess, wrongletters);
 		}
 		else {
 			logic.ClueStatus(mysteryword, guess, clue);
 		}
 
-		io::Status(guess, clue, wrongletters, mistakecount, logic.maxmistakes, printwrong);
+		io::Status(guess, clue, wrongletters, mistakecount, logic.maxmistakes, switcher);
 		if (clue == mysteryword) {
 			done = true;
 			win = true;
@@ -46,8 +46,7 @@ void hangman::HangmanStart() {
 		if (mistakecount == logic.maxmistakes) {
 			done = true;
 		}
-		//printwrong = false;
+		printwrong = false;
 	}
-
 	io::EndResult(win, mysteryword);
 }

@@ -60,12 +60,12 @@ namespace io {
 	}
 
 	void Status(std::string& guess, std::string& clue, std::string& wrongletters,
-		int mistakes, int maxmistakes, bool printwrong) {
+		int mistakes, int maxmistakes, bool switcher) {
 		std::cout << "Guess: " << guess << std::endl << std::endl;
 		std::cout << "Mistakes: " << mistakes << "/" << maxmistakes << std::endl;
 		std::cout << "Clue:     " << clue << std::endl;
 
-		if (printwrong) {
+		if (switcher) {
 			std::cout << "Wrong:    " << wrongletters << std::endl << std::endl;
 		} else {
 			std::cout << std::endl;
