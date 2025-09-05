@@ -3,9 +3,14 @@
 
 namespace hangman {
 
-	int Logic::MistakeCount(std::string const& guess, std::string const& mysteryword, bool& printwrong, int mistakecount) {
+	int Logic::MistakeCount(std::string const& guess, std::string const& mysteryword, bool& printwrong, int mistakecount, bool easyset, std::string wrongletters) {
 		if (mysteryword.find(guess) == std::string::npos) {
-			mistakecount++;
+			if (!easyset){
+				mistakecount++;
+			}
+			else if (wrongletters.find(guess) == std::string::npos){
+				mistakecount++;
+			}
 			printwrong = true;
 		}
 		return mistakecount;
@@ -15,8 +20,6 @@ namespace hangman {
 		if (wrongletters.find(guess) == std::string::npos) {
 			wrongletters += guess;
 		}
-		
-
 		return wrongletters;
 	}
 

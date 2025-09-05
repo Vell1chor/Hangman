@@ -15,18 +15,15 @@ void hangman::HangmanStart() {
 	bool easyset = false;
 
 	io::Difficulty(difficulty);
-	logic.maxmistakes = io::IntoDifficulty(difficulty, logic.maxmistakes);
-	mysteryword = io::MysteryWord(); \
+	logic.maxmistakes = io::IntoDifficulty(difficulty, logic.maxmistakes, easyset);
+	mysteryword = io::MysteryWord();
 	std::string clue(mysteryword.size(), '_');
 	io::GameStart(logic.maxmistakes, mysteryword);
 
 	while (!done) {
 		io::RetrieveGuess(guess); 
 		io::RemoveWhitespace(guess); 
-
-		mistakecount = logic.MistakeCount(guess, mysteryword, printwrong, mistakecount);
-		
-
+		mistakecount = logic.MistakeCount(guess, mysteryword, printwrong, mistakecount, easyset, wrongletters);
 		clue = logic.ClueStatus(mysteryword, guess, clue);
 
 		bool switcher = false;
@@ -49,7 +46,7 @@ void hangman::HangmanStart() {
 		if (mistakecount == logic.maxmistakes) {
 			done = true;
 		}
-		printwrong == false;
+		printwrong = false;
 	}
 
 	io::EndResult(win, mysteryword);

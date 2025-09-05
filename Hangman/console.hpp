@@ -5,7 +5,7 @@
 namespace io {
 	void GameStart(int maxmistakes, std::string mysteryword);
 	void Difficulty(std::string& difficulty);
-	int IntoDifficulty(std::string& difficulty, int& maxmistakes);
+	int IntoDifficulty(std::string& difficulty, int& maxmistakes, bool& easyset);
 	std::string MysteryWord();
 	void RetrieveGuess(std::string& guess);
 	void RemoveWhitespace(std::string& guess);
