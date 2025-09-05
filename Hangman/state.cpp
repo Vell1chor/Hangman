@@ -5,6 +5,20 @@ namespace hangman {
 
 	int Logic::MistakeCount(std::string const& guess, std::string const& mysteryword, bool& printwrong, int mistakecount, bool easyset, std::string wrongletters) {
 		if (mysteryword.find(guess) == std::string::npos) {
+			
+			
+			
+			/*if (!easyset && wrongletters.find(guess) == std::string::npos) {
+				break;
+			}
+			else mistakecount++;*/
+			
+			
+			
+			
+			
+			
+			
 			if (!easyset){
 				mistakecount++;
 			}

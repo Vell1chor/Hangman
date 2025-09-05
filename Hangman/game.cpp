@@ -46,7 +46,7 @@ void hangman::HangmanStart() {
 		if (mistakecount == logic.maxmistakes) {
 			done = true;
 		}
-		printwrong = false;
+		//printwrong = false;
 	}
 
 	io::EndResult(win, mysteryword);
