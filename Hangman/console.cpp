@@ -9,7 +9,29 @@ namespace io {
 		}
 	}
 
+	/*auto IntoDifficulty() {
+
+	}*/
+
+
+
+
+
 	int IntoDifficulty(std::string& difficulty, int& maxmistakes, bool& easyset) {
+		/*if (difficulty == "EASY") {
+			return EASY;
+		}
+		else if (difficulty == "REGULAR") {
+			return REGULAR;
+		}
+		else if (difficulty == "HARD") {
+			return HARD;
+		}*/
+		
+		
+		
+		
+		
 		if (difficulty == "EASY") {
 			easyset = true;
 		}

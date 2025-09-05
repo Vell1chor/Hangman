@@ -4,6 +4,7 @@
 void hangman::HangmanStart() {
 	Logic logic;
 	std::string wrongletters;
+	std::string allletters;
 	std::string guess;
 	std::string mysteryword;
 	std::string difficulty;
@@ -24,8 +25,10 @@ void hangman::HangmanStart() {
 	while (!done) {
 		io::RetrieveGuess(guess); 
 		io::RemoveWhitespace(guess); 
-		mistakecount = logic.MistakeCount(guess, mysteryword, printwrong, mistakecount, easyset, wrongletters);
+		
 		clue = logic.ClueStatus(mysteryword, guess, clue);
+		mistakecount = logic.MistakeCount(guess, mysteryword, printwrong, mistakecount, easyset, wrongletters, clue);
+		
 
 		if (printwrong == true) {
 			switcher = true;
@@ -50,10 +53,8 @@ void hangman::HangmanStart() {
 		}
 
 		io::Status(guess, clue, wrongletters, mistakecount, logic.maxmistakes, switcher);
-
+		
 		printwrong = false;
 	}
 	io::EndResult(win, mysteryword, guess);
 }
-//write alphabetical wrongletters
-//write that if clue.find(guess) == std::string npos; then it is an error

@@ -3,6 +3,13 @@
 #include <string>
 
 namespace io {
+
+	enum DificultyType {
+		EASY,
+		REGULAR,
+		HARD
+	};
+
 	void GameStart(int maxmistakes, std::string mysteryword);
 	void Difficulty(std::string& difficulty);
 	int IntoDifficulty(std::string& difficulty, int& maxmistakes, bool& easyset);
