@@ -26,9 +26,9 @@ void hangman::HangmanStart() {
 		io::RetrieveGuess(guess); 
 		io::RemoveWhitespace(guess); 
 		
-		clue = logic.ClueStatus(mysteryword, guess, clue);
 		mistakecount = logic.MistakeCount(guess, mysteryword, printwrong, mistakecount, easyset, wrongletters, clue);
 		
+		clue = logic.ClueStatus(mysteryword, guess, clue);
 
 		if (printwrong == true) {
 			switcher = true;

@@ -13,7 +13,7 @@ namespace hangman {
 				mistakecount--;
 			}
 		}
-		else if (!easyset && clue.find(g)) {
+		else if (!easyset && clue.find(g) != std::string::npos) {
 			mistakecount++;
 		}
 		return mistakecount;
