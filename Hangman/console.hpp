@@ -11,5 +11,5 @@ namespace io {
 	void RemoveWhitespace(std::string& guess);
 	void Status(std::string& guess, std::string& clue, std::string& wrongletters,
 		int mistakes, int maxmistakes, bool wrong);
-	void EndResult(bool win, std::string mysteryword);
+	void EndResult(bool win, std::string mysteryword, std::string guess);
 }

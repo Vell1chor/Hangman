@@ -38,15 +38,22 @@ void hangman::HangmanStart() {
 			logic.ClueStatus(mysteryword, guess, clue);
 		}
 
-		io::Status(guess, clue, wrongletters, mistakecount, logic.maxmistakes, switcher);
 		if (clue == mysteryword) {
 			done = true;
 			win = true;
+			break;
 		}
+		
 		if (mistakecount == logic.maxmistakes) {
 			done = true;
+			break;
 		}
+
+		io::Status(guess, clue, wrongletters, mistakecount, logic.maxmistakes, switcher);
+
 		printwrong = false;
 	}
-	io::EndResult(win, mysteryword);
+	io::EndResult(win, mysteryword, guess);
 }
+//write alphabetical wrongletters
+//write that if clue.find(guess) == std::string npos; then it is an error

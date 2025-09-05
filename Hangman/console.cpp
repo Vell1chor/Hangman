@@ -72,11 +72,14 @@ namespace io {
 		}
 	}
 
-	void EndResult(bool win, std::string mysteryword) {
+	void EndResult(bool win, std::string mysteryword, std::string guess) {
+		
+		std::cout << "Guess: " << guess << std::endl << std::endl;
+
 		if (win) {
-			std::cout << "You won!\nThe word was : " << mysteryword;
+			std::cout << "You won!\nThe word was: " << mysteryword;
 		}
 		else
-			std::cout << "You lost.\nThe word was : " << mysteryword;
+			std::cout << "You lost.\nThe word was: " << mysteryword;
 	}
 }
