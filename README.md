@@ -6,7 +6,7 @@
 
 ## Git Repository
 
-(github link to repository)
+https://github.com/Vell1chor/Hangman
 
 ## Description
 
@@ -24,4 +24,4 @@ Writing the general flow of the program and making the files went smoothly.
 
 ## Weaknesses
 
-Getting into the specifics of the functions was difficult, and we forgot to use enum, which was difficult to add into the finished program.
+Getting into the specifics of the functions was difficult, like the diferences between the difficulties in MistakeCount.
