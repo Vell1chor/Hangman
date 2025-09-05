@@ -17,6 +17,7 @@ namespace hangman {
 		if (wrongletters.find(guess) == std::string::npos) {
 			wrongletters += guess;
 		}
+		std::sort(wrongletters.begin(), wrongletters.end());
 		return wrongletters;
 	}
 
