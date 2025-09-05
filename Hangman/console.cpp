@@ -9,14 +9,6 @@ namespace io {
 		}
 	}
 
-	/*auto IntoDifficulty() {
-
-	}*/
-
-
-
-
-
 	int IntoDifficulty(std::string& difficulty, int& maxmistakes, bool& easyset) {
 		/*if (difficulty == "EASY") {
 			return EASY;
@@ -27,11 +19,6 @@ namespace io {
 		else if (difficulty == "HARD") {
 			return HARD;
 		}*/
-		
-		
-		
-		
-		
 		if (difficulty == "EASY") {
 			easyset = true;
 		}
@@ -40,9 +27,6 @@ namespace io {
 		}
 		return maxmistakes;
 	}
-	
-	//need a function for difficulty if it means duplicate letters are mistakes or not.
-	//Regualer and hard = true, easy = false
 
 	std::string MysteryWord() {
 		std::string mysteryword;
